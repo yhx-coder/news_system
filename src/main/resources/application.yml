@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/news_system?useSSL=false
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 30000 # \u7B49\u5F85\u8FDE\u63A5\u6C60\u5206\u914D\u8FDE\u63A5\u7684\u6700\u5927\u65F6\u957F\uFF08\u6BEB\u79D2\uFF09\uFF0C\u8D85\u65F6\u8FD8\u6CA1\u8FDE\u63A5\u53EF\u7528\u5219\u629B\u51FA SQLException\uFF0C\u9ED8\u8BA4: 30\u79D2
+      minimum-idle: 5           # \u6C60\u4E2D\u6700\u5C0F\u7A7A\u95F2\u8FDE\u63A5\u6570
+      maximum-pool-size: 15     # \u6C60\u4E2D\u6700\u5927\u7A7A\u95F2\u8FDE\u63A5\u6570
+      auto-commit: true         # \u81EA\u52A8\u63D0\u4EA4
+      idle-timeout: 600000      # \u8FDE\u63A5\u5141\u8BB8\u5728\u6C60\u4E2D\u95F2\u7F6E\u7684\u6700\u957F\u65F6\u95F4\uFF08\u6BEB\u79D2\uFF09\uFF0C\u8D85\u65F6\u5219\u88AB\u91CA\u653E\uFF08retired\uFF09\uFF0C\u9ED8\u8BA4: 10\u5206\u949F
+      pool-name: DataSourceHikariCP # \u8FDE\u63A5\u6C60\u7684\u540D\u5B57
+      max-lifetime: 1800000     # \u6C60\u4E2D\u8FDE\u63A5\u6700\u957F\u751F\u547D\u5468\u671F\uFF08\u6BEB\u79D2\uFF09\uFF0C\u8D85\u65F6\u672A\u4F7F\u7528\u5219\u88AB\u91CA\u653E
+      connection-test-query: select 1   # \u7528\u6765\u68C0\u67E5\u8FDE\u63A5\u6D3B\u6027\u7684 sql\uFF0C\u8981\u6C42\u662F\u4E00\u4E2A\u67E5\u8BE2\u8BED\u53E5\uFF0C\u5E38\u7528 select 'x'
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.example.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8080
+
