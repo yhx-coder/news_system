@@ -19,7 +19,7 @@
 
   接着求助万能的搜索引擎，看到很多人给出的答案为 json 数据格式问题，于是找到教程源码，查看其 json 格式，发现该处 发送的字段名为 list 。尝试将上述属性重命名为 private List<?> list ，问题得到解决。
 
-* 数据源连接释放时，未用 ssl 连接报错。简单解决为 useSSL=false。以后再详细了解。
+* 数据源连接释放时，未用 ssl 连接报错。简单解决为 useSSL=false。https://stackoverflow.com/questions/34189756/warning-about-ssl-connection-when-connecting-to-mysql-database
 
 ### 下一步计划
 
